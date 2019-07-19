@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
-import { Hero } from './hero';
 import { MessageService } from './message.service';
 
 const httpOptions = {
@@ -12,9 +10,9 @@ const httpOptions = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class PlanetService {
+export class VehicleService {
 
-  private planetsUrl = 'api/planets';  // URL to web api
+  private vehiclesUrl = 'api/vehicles';  // URL to web api
    API_URL: string = "https://swapi.co/api/";
 
   constructor(
@@ -23,36 +21,39 @@ export class PlanetService {
 
   /** GET planets from the server */
 
-  getPlanets(thisPg: any): Observable<string[]> {
+  getVehicles(thisPg: any): Observable<string[]> {
     return this.http.get<any[]>(thisPg);
   }
 
-  getNextPlanets(thisPg: any): Observable<string[]>
+  getNextVehicles(thisPg: any): Observable<string[]>
   {
     return this.http.get<any[]>(thisPg);
   }
 
-  getNextPg(nextPg: any): Observable<string[]>{
-        return this.http.get<any[]>(nextPg);
-      }
+  getNextPg(nextPg: any): Observable<string[]>
+  {
+    return this.http.get<any[]>(nextPg);
+  }
 
-  getPrevPlanets(thisPg: any): Observable<string[]>
+  getPrevVehicles(thisPg: any): Observable<string[]>
   {
     return this.http.get<any[]>(thisPg);
   }
 
-  getPrevPg(prevPg: any): Observable<string[]>{
-        return this.http.get<any[]>(prevPg);
-      }
+  getPrevPg(prevPg: any): Observable<string[]>
+  {
+    return this.http.get<any[]>(prevPg);
+  }
 
   callAPI(thisURL: any): Observable<any[]>
   {
     return this.http.get<any[]>(thisURL);
   }
 
-  getPlanetDetails(planetIndex : number): any {
-        console.log("planetIndex: "+planetIndex);
-        return this.http.get<any>("https://swapi.co/api/planets/"+(planetIndex));
+  getVehicleDetails(vehicleIndex : number): any
+  {
+    console.log("vehicleIndex: "+vehicleIndex);
+    return this.http.get<any>("https://swapi.co/api/vehicles/"+(vehicleIndex));
   }
 }
 

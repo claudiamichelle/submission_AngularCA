@@ -2,11 +2,11 @@
   <button>Show</button>
 
 <body class=body>
-<h3>Starwars CA - Planets </h3>
+<h3>Starwars CA - Starships </h3>
 <div class="grid grid-pad">
 
-  <button *ngFor="let planet of planets ; index as i" class="col-1-4" class="bttn btn-space"
-     routerLink="/category/planets/{{planet.url[planet.url.length-3]}}{{planet.url[planet.url.length-2]}}" (click)="getPlanetDetail(i+1)">
+  <button *ngFor="let planet of starships ; index as i" class="col-1-4" class="bttn btn-space"
+     routerLink="/category/starships/{{planet.url.split('/')[((planet.url.split('/').length)-2)]}}" (click)="getStarshipDetail(planet.url.split('/')[((planet.url.split('/').length)-2)])">
       {{planet.name}}
   </button>
 <br>
@@ -17,19 +17,23 @@
 
   <a [(ngModel)]="details" class="col-1-4">
 
-  {{details.name}} <br>
-   {{details.rotation_period}}<br>
-   {{details.orbital_period}}<br>
-   {{details.diameter}}<br>
-   {{details.climate}}<br>
-    {{details.gravity}}<br>
-    {{details.terrain}}<br>
-    {{details.surface_water}}<br>
-    {{details.population}}<br>
-    {{details.residents}}<br>
-    {{details.films}}<br>
-    {{details.created}}<br>
-    {{details.edited}}<br>
+    <h4>{{details.name}}</h4><br>
+    Model: {{details.model}}<br>
+    Manufacturer: {{details.manufacturer}}<br>
+    Cost in Credits: {{details.cost_in_credits}}<br>
+    Length: {{details.length}}<br>
+    Max Atmosphering Speed: {{details.max_atmosphering_speed}}<br>
+    Crew: {{details.crew}}<br>
+    Passengers: {{details.passengers}}<br>
+    Cargo Capacity: {{details.cargo_capacity}}<br>
+    Consumables: {{details.consumables}}<br>
+    Hyperdrive Rating: {{details.hyperdrive_rating}}<br>
+    MGLT: {{details.MGLT}}<br>
+    Starship Class: {{details.starship_class}}<br>
+    Pilots: {{details.pilots}}<br>
+    Films: {{details.films}}<br>
+    Created: {{details.created}}<br>
+    Edited: {{details.edited}}<br>
 
   </a>
 </div>

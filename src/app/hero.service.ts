@@ -33,30 +33,25 @@ export class HeroService {
 //    (this.API_URL +'people' + '/?format=json');
   }
 
-  getNextCharacter(thisPg: any): Observable<string[]>
-  {
+  getNextCharacter(thisPg: any): Observable<string[]> {
     return this.http.get<any[]>(thisPg);
   }
 
-  getNextPg(nextPg: any): Observable<string[]>{
+  getNextPg(nextPg: any): Observable<string[]> {
     // console.log('(SVC) next page');
     return this.http.get<any[]>(nextPg);
-    //('https://swapi.co/api/people/?page=2');
   }
 
-  getPrevCharacter(thisPg: any): Observable<string[]>
-  {
+  getPrevCharacter(thisPg: any): Observable<string[]> {
     return this.http.get<any[]>(thisPg);
   }
 
-  getPrevPg(prevPg: any): Observable<string[]>{
+  getPrevPg(prevPg: any): Observable<string[]> {
     // console.log('(SVC) prev page');
     return this.http.get<any[]>(prevPg);
-    //('https://swapi.co/api/people/?page=2');
   }
 
-  callAPI(thisURL: any): Observable<any[]>
-  {
+  callAPI(thisURL: any): Observable<any[]> {
     return this.http.get<any[]>(thisURL);
   }
 

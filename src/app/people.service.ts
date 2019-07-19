@@ -12,9 +12,9 @@ const httpOptions = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class PlanetService {
+export class PeopleService {
 
-  private planetsUrl = 'api/planets';  // URL to web api
+  private peopleUrl = 'api/people';  // URL to web api
    API_URL: string = "https://swapi.co/api/";
 
   constructor(
@@ -23,11 +23,11 @@ export class PlanetService {
 
   /** GET planets from the server */
 
-  getPlanets(thisPg: any): Observable<string[]> {
+  getPeople(thisPg: any): Observable<string[]> {
     return this.http.get<any[]>(thisPg);
   }
 
-  getNextPlanets(thisPg: any): Observable<string[]>
+  getNextPeople(thisPg: any): Observable<string[]>
   {
     return this.http.get<any[]>(thisPg);
   }
@@ -36,7 +36,7 @@ export class PlanetService {
         return this.http.get<any[]>(nextPg);
       }
 
-  getPrevPlanets(thisPg: any): Observable<string[]>
+  getPrevPeople(thisPg: any): Observable<string[]>
   {
     return this.http.get<any[]>(thisPg);
   }
@@ -50,9 +50,9 @@ export class PlanetService {
     return this.http.get<any[]>(thisURL);
   }
 
-  getPlanetDetails(planetIndex : number): any {
-        console.log("planetIndex: "+planetIndex);
-        return this.http.get<any>("https://swapi.co/api/planets/"+(planetIndex));
+  getPeopleDetails(peopleIndex : number): any {
+        console.log("peopleIndex: "+peopleIndex);
+        return this.http.get<any>("https://swapi.co/api/people/"+(peopleIndex));
   }
 }
 

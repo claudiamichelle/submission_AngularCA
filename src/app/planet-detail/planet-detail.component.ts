@@ -1,12 +1,10 @@
+// @ts-ignore
 import { Component, OnInit, Input } from '@angular/core';
+// @ts-ignore
 import { ActivatedRoute } from '@angular/router';
+// @ts-ignore
 import { Location } from '@angular/common';
 
-import { Hero }         from '../hero';
-import { HeroService }  from '../hero.service';
-import {getPluralCategory} from "@angular/common/src/i18n/localization";
-import {forEach} from "@angular/router/src/utils/collection";
-import {stringify} from "@angular/core/src/render3/util";
 import {PlanetService} from "../planet.service";
 
 @Component({
@@ -15,13 +13,13 @@ import {PlanetService} from "../planet.service";
   styleUrls: [ './planet-detail.component.css' ]
 })
 export class PlanetDetailComponent implements OnInit {
-    @Input() hero: Hero;
+    @Input()
 
     planets: any[];
     nextPg: string;
     thisPg: string;
     prevPg: string;
-        details: any;
+    details: any;
 
     constructor(
         private route: ActivatedRoute,
@@ -31,8 +29,8 @@ export class PlanetDetailComponent implements OnInit {
 
     ngOnInit(): void {
         this.thisPg = 'https://swapi.co/api/planets/';
-        this.prevPg = 'abcde';
-        this.nextPg = '12345';
+        this.prevPg = '';
+        this.nextPg = '';
         this.getPlanets();
     }
 
@@ -41,7 +39,7 @@ export class PlanetDetailComponent implements OnInit {
         this.planetService.callAPI(this.thisPg).subscribe(
             planets => {
                 this.planets   = Object.values(planets['results']);
-            })
+            });
 
         this.planetService.callAPI(this.thisPg).subscribe(
             prevPg => {this.prevPg = Object.values(prevPg['previous']).join("");});
@@ -100,10 +98,9 @@ export class PlanetDetailComponent implements OnInit {
 
     getPlanetDetail(number :number): void {
         console.log('CLICKED A PLANET');
-    console.log(number);
-    this.planetService.getPlanetDetails(number).subscribe(details => this.details = Object(details));
-    console.log("testing hello")
-}
+        console.log(number);
+        this.planetService.getPlanetDetails(number).subscribe(details => this.details = Object(details));
+    }
 }
 
 

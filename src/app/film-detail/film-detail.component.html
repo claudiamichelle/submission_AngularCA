@@ -6,8 +6,8 @@
 <div class="grid grid-pad">
 
   <button *ngFor="let film of films ; index as i" class="col-1-4" class="bttn btn-space"
-     routerLink="/category/planets/{{film.url[film.url.length-3]}}{{film.url[film.url.length-2]}}" (click)="getPlanetDetail(i+1)">
-      {{film.name}}
+     routerLink="/category/films/{{film.url.split('/')[((film.url.split('/').length)-2)]}}" (click)="getFilmDetail(film.url.split('/')[((film.url.split('/').length)-2)])">
+    {{film.title}}
   </button>
 <br>
     <button (click)="previousPage()" class="btn-space"> Previous Page </button>
@@ -17,19 +17,18 @@
 
   <a [(ngModel)]="details" class="col-1-4">
 
-  {{details.name}} <br>
-   {{details.rotation_period}}<br>
-   {{details.orbital_period}}<br>
-   {{details.diameter}}<br>
-   {{details.climate}}<br>
-    {{details.gravity}}<br>
-    {{details.terrain}}<br>
-    {{details.surface_water}}<br>
-    {{details.population}}<br>
-    {{details.residents}}<br>
-    {{details.films}}<br>
-    {{details.created}}<br>
-    {{details.edited}}<br>
-
+    <h4>{{details.title}}</h4><br>
+    Episode ID: {{details.episode_id}}<br>
+    Opening Crawl: {{details.opening_crawl}}<br>
+    Director: {{details.director}}<br>
+    Producer: {{details.producer}}<br>
+    Release Date: {{details.release_date}}<br>
+    Characters: {{details.characters}}<br>
+    Planets: {{details.planets}}<br>
+    Starships: {{details.starships}}<br>
+    Vehicles: {{details.vehicles}}<br>
+    Species: {{details.species}}<br>
+    Created: {{details.created}}<br>
+    Edited: {{details.edited}}<br>
   </a>
 </div>

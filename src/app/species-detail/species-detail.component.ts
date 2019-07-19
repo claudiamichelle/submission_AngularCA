@@ -7,7 +7,7 @@ import { HeroService }  from '../hero.service';
 import {getPluralCategory} from "@angular/common/src/i18n/localization";
 import {forEach} from "@angular/router/src/utils/collection";
 import {stringify} from "@angular/core/src/render3/util";
-import {PlanetService} from "../planet.service";
+import {SpeciesService} from "../species.service";
 
 @Component({
   selector: 'app-hero-detail',
@@ -17,36 +17,36 @@ import {PlanetService} from "../planet.service";
 export class SpeciesDetailComponent implements OnInit {
     @Input() hero: Hero;
 
-    planets: any[];
+    species: any[];
     nextPg: string;
     thisPg: string;
     prevPg: string;
-        details: any;
+    details: any;
 
     constructor(
         private route: ActivatedRoute,
-        private planetService: PlanetService,
+        private speciesService: SpeciesService,
         private location: Location
     ){}
 
     ngOnInit(): void {
-        this.thisPg = 'https://swapi.co/api/planets/';
-        this.prevPg = 'abcde';
-        this.nextPg = '12345';
-        this.getPlanets();
+        this.thisPg = 'https://swapi.co/api/species/';
+        this.prevPg = '';
+        this.nextPg = '';
+        this.getSpecies();
     }
 
-    getPlanets(): void {
+    getSpecies(): void {
 
-        this.planetService.callAPI(this.thisPg).subscribe(
-            planets => {
-                this.planets   = Object.values(planets['results']);
+        this.speciesService.callAPI(this.thisPg).subscribe(
+            species => {
+                this.species   = Object.values(species['results']);
             })
 
-        this.planetService.callAPI(this.thisPg).subscribe(
+        this.speciesService.callAPI(this.thisPg).subscribe(
             prevPg => {this.prevPg = Object.values(prevPg['previous']).join("");});
 
-        this.planetService.callAPI(this.thisPg).subscribe(
+        this.speciesService.callAPI(this.thisPg).subscribe(
             nextPg => {this.nextPg = Object.values(nextPg['next']).join("");});
 
         console.log('Current Pg : ' + this.thisPg);
@@ -59,7 +59,7 @@ export class SpeciesDetailComponent implements OnInit {
         console.log('CLICKED NEXT');
         this.prevPg = this.thisPg;
         this.thisPg = this.nextPg;
-        this.planetService.callAPI(this.nextPg).subscribe(
+        this.speciesService.callAPI(this.nextPg).subscribe(
             nextPg => {this.nextPg = Object.values(nextPg['next']).join("");});
 
 
@@ -67,9 +67,9 @@ export class SpeciesDetailComponent implements OnInit {
         console.log('Previous Pg: ' + this.prevPg);
         console.log('Next Pg: ' + this.nextPg);
 
-        this.planetService.callAPI(this.thisPg).subscribe(
-            planets => {
-                this.planets = Object.values(planets['results']);
+        this.speciesService.callAPI(this.thisPg).subscribe(
+            species => {
+                this.species = Object.values(species['results']);
             });
     }
 
@@ -85,25 +85,24 @@ export class SpeciesDetailComponent implements OnInit {
 
         this.nextPg = this.thisPg;
         this.thisPg = this.prevPg;
-        this.planetService.callAPI(this.prevPg).subscribe(
+        this.speciesService.callAPI(this.prevPg).subscribe(
             prevPg => {this.prevPg = Object.values(prevPg['previous']).join("");});
 
         console.log('Current Pg: ' + this.thisPg);
         console.log('Previous Pg: ' + this.prevPg);
         console.log('Next Pg: ' + this.nextPg);
 
-        this.planetService.callAPI(this.thisPg).subscribe(
-            planets => {
-                this.planets = Object.values(planets['results']);
+        this.speciesService.callAPI(this.thisPg).subscribe(
+            species => {
+                this.species = Object.values(species['results']);
             });
     }
 
-    getPlanetDetail(number :number): void {
-        console.log('CLICKED A PLANET');
+    getSpeciesDetail(number :number): void {
+        console.log('CLICKED A SPECIES');
     console.log(number);
-    this.planetService.getPlanetDetails(number).subscribe(details => this.details = Object(details));
-    console.log("testing hello")
-}
+    this.speciesService.getSpeciesDetails(number).subscribe(details => this.details = Object(details));
+    }
 }
 
 

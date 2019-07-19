@@ -10,16 +10,17 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { MessagesComponent } from './messages/messages.component';
-import {PlanetDetailComponent} from "./planet-detail/planet-detail.component";
-import {CharacterDetailComponent} from "./character-detail/character-detail.component";
-import {SpeciesDetailComponent} from "./species-detail/species-detail.component";
-import {FilmDetailComponent} from "./film-detail/film-detail.component";
-import {StarshipDetailComponent} from "./starship-detail/starship-detail.component";
-import {VehicleDetailComponent} from "./vehicle-detail/vehicle-detail.component";
+
+import { FilmDetailComponent } from "./film-detail/film-detail.component";
+import { PeopleDetailComponent } from "./people-detail/people-detail.component";
+import { PlanetDetailComponent } from "./planet-detail/planet-detail.component";
+import { SpeciesDetailComponent } from "./species-detail/species-detail.component";
+import { StarshipDetailComponent } from "./starship-detail/starship-detail.component";
+import { VehicleDetailComponent } from "./vehicle-detail/vehicle-detail.component";
+import {MessagesComponent} from "./messages/messages.component";
 
 @NgModule({
   imports: [
@@ -40,19 +41,22 @@ import {VehicleDetailComponent} from "./vehicle-detail/vehicle-detail.component"
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MessagesComponent,
     HeroSearchComponent,
-    PlanetDetailComponent,
-    CharacterDetailComponent,
-    FilmDetailComponent,
-    SpeciesDetailComponent,
-    VehicleDetailComponent,
-    StarshipDetailComponent
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+    MessagesComponent,
 
+    FilmDetailComponent,
+    PeopleDetailComponent,
+    PlanetDetailComponent,
+    SpeciesDetailComponent,
+    StarshipDetailComponent,
+    VehicleDetailComponent
+  ],
+
+  bootstrap: [AppComponent]
+
+})
+
+export class AppModule { }
 
 /*
 Copyright Google LLC. All Rights Reserved.

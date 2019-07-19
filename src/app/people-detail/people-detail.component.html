@@ -1,0 +1,37 @@
+
+  <button>Show</button>
+
+<body class=body>
+<h3>Starwars CA - People </h3>
+<div class="grid grid-pad">
+
+  <button *ngFor="let char of peoples ; index as i" class="col-1-4" class="bttn btn-space"
+     routerLink="/category/people/{{char.url.split('/')[((char.url.split('/').length)-2)]}}" (click)="getPeopleDetail(char.url.split('/')[((char.url.split('/').length)-2)])">
+      {{char.name}}
+  </button>
+<br>
+    <button (click)="previousPage()" class="btn-space"> Previous Page </button>
+    <button (click)="nextPage()"> Next Page </button>
+
+    <br>
+
+  <a [(ngModel)]="details" class="col-1-4">
+
+      <h4>{{details.name}}</h4><br>
+      Height: {{details.height}}<br>
+      Mass: {{details.mass}}<br>
+      Hair Color: {{details.hair_color}}<br>
+      Skin Color: {{details.skin_color}}<br>
+      Eye Color: {{details.eye_color}}<br>
+      Birth Year: {{details.birth_year}}<br>
+      Gender: {{details.gender}}<br>
+      Homeworld: {{details.homeworld}}<br>
+      Films: {{details.films}}<br>
+      Species: {{details.species}}<br>
+      Vehicles: {{details.vehicles}}<br>
+      Starships: {{details.starships}}<br>
+      Created: {{details.created}}<br>
+      Edited: {{details.edited}}<br>
+
+  </a>
+</div>

@@ -2,12 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Hero }         from '../hero';
-import { HeroService }  from '../hero.service';
-import {getPluralCategory} from "@angular/common/src/i18n/localization";
-import {forEach} from "@angular/router/src/utils/collection";
-import {stringify} from "@angular/core/src/render3/util";
-import {PlanetService} from "../planet.service";
+import {VehicleService} from "../vehicle.service";
 
 @Component({
   selector: 'app-hero-detail',
@@ -15,38 +10,37 @@ import {PlanetService} from "../planet.service";
   styleUrls: [ './vehicle-detail.component.css' ]
 })
 export class VehicleDetailComponent implements OnInit {
-    @Input() hero: Hero;
+    @Input()
 
-    planets: any[];
+    vehicles: any[];
     nextPg: string;
     thisPg: string;
     prevPg: string;
-        details: any;
+    details: any;
 
     constructor(
         private route: ActivatedRoute,
-        private planetService: PlanetService,
-        private location: Location
+        private vehicleService: VehicleService,
     ){}
 
     ngOnInit(): void {
-        this.thisPg = 'https://swapi.co/api/planets/';
+        this.thisPg = 'https://swapi.co/api/vehicles/';
         this.prevPg = 'abcde';
         this.nextPg = '12345';
-        this.getPlanets();
+        this.getVehicles();
     }
 
-    getPlanets(): void {
+    getVehicles(): void {
 
-        this.planetService.callAPI(this.thisPg).subscribe(
-            planets => {
-                this.planets   = Object.values(planets['results']);
-            })
+        this.vehicleService.callAPI(this.thisPg).subscribe(
+            vehicles => {
+                this.vehicles = Object.values(vehicles['results']);
+            });
 
-        this.planetService.callAPI(this.thisPg).subscribe(
+        this.vehicleService.callAPI(this.thisPg).subscribe(
             prevPg => {this.prevPg = Object.values(prevPg['previous']).join("");});
 
-        this.planetService.callAPI(this.thisPg).subscribe(
+        this.vehicleService.callAPI(this.thisPg).subscribe(
             nextPg => {this.nextPg = Object.values(nextPg['next']).join("");});
 
         console.log('Current Pg : ' + this.thisPg);
@@ -59,7 +53,7 @@ export class VehicleDetailComponent implements OnInit {
         console.log('CLICKED NEXT');
         this.prevPg = this.thisPg;
         this.thisPg = this.nextPg;
-        this.planetService.callAPI(this.nextPg).subscribe(
+        this.vehicleService.callAPI(this.nextPg).subscribe(
             nextPg => {this.nextPg = Object.values(nextPg['next']).join("");});
 
 
@@ -67,9 +61,9 @@ export class VehicleDetailComponent implements OnInit {
         console.log('Previous Pg: ' + this.prevPg);
         console.log('Next Pg: ' + this.nextPg);
 
-        this.planetService.callAPI(this.thisPg).subscribe(
-            planets => {
-                this.planets = Object.values(planets['results']);
+        this.vehicleService.callAPI(this.thisPg).subscribe(
+            vehicles => {
+                this.vehicles = Object.values(vehicles['results']);
             });
     }
 
@@ -85,25 +79,24 @@ export class VehicleDetailComponent implements OnInit {
 
         this.nextPg = this.thisPg;
         this.thisPg = this.prevPg;
-        this.planetService.callAPI(this.prevPg).subscribe(
+        this.vehicleService.callAPI(this.prevPg).subscribe(
             prevPg => {this.prevPg = Object.values(prevPg['previous']).join("");});
 
         console.log('Current Pg: ' + this.thisPg);
         console.log('Previous Pg: ' + this.prevPg);
         console.log('Next Pg: ' + this.nextPg);
 
-        this.planetService.callAPI(this.thisPg).subscribe(
-            planets => {
-                this.planets = Object.values(planets['results']);
+        this.vehicleService.callAPI(this.thisPg).subscribe(
+            vehicles => {
+                this.vehicles = Object.values(vehicles['results']);
             });
     }
 
-    getPlanetDetail(number :number): void {
-        console.log('CLICKED A PLANET');
-    console.log(number);
-    this.planetService.getPlanetDetails(number).subscribe(details => this.details = Object(details));
-    console.log("testing hello")
-}
+    getVehicleDetail(number :number): void {
+        console.log('CLICKED A VEHICLE');
+        console.log(number);
+        this.vehicleService.getVehicleDetails(number).subscribe(details => this.details = Object(details));
+    }
 }
 
 

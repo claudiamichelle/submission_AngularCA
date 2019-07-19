@@ -1,28 +1,31 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroesComponent }      from './heroes/heroes.component';
-import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+import {FilmDetailComponent} from "./film-detail/film-detail.component";
+import {PeopleDetailComponent} from "./people-detail/people-detail.component";
 import {PlanetDetailComponent} from "./planet-detail/planet-detail.component";
+import {SpeciesDetailComponent} from "./species-detail/species-detail.component";
+import {StarshipDetailComponent} from "./starship-detail/starship-detail.component";
+import {VehicleDetailComponent} from "./vehicle-detail/vehicle-detail.component";
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'category/people', component: HeroDetailComponent },
-  { path: 'category/people/:name', component: HeroesComponent },
+  { path: 'category/films', component: FilmDetailComponent },
+  { path: 'category/films/:name', component: FilmDetailComponent },
+  { path: 'category/people', component: PeopleDetailComponent },
+  { path: 'category/people/:name', component: PeopleDetailComponent },
   { path: 'category/planets', component: PlanetDetailComponent },
   { path: 'category/planets/:name', component: PlanetDetailComponent },
-  { path: 'category/vehicles', component: PlanetDetailComponent },
-  { path: 'category/vehicles/:name', component: PlanetDetailComponent },
-  { path: 'category/starships', component: PlanetDetailComponent },
-  { path: 'category/starships/:name', component: PlanetDetailComponent },
-  { path: 'category/films', component: PlanetDetailComponent },
-  { path: 'category/films/:name', component: PlanetDetailComponent },
-  { path: 'category/species', component: PlanetDetailComponent },
-  { path: 'category/species/:name', component: PlanetDetailComponent },
-
-
+  { path: 'category/species', component: SpeciesDetailComponent },
+  { path: 'category/species/:name', component: SpeciesDetailComponent },
+  { path: 'category/starships', component: StarshipDetailComponent },
+  { path: 'category/starships/:name', component: StarshipDetailComponent },
+  { path: 'category/vehicles', component: VehicleDetailComponent },
+  { path: 'category/vehicles/:name', component: VehicleDetailComponent },
 
 ];
 
