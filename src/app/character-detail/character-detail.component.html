@@ -1,0 +1,35 @@
+
+  <button>Show</button>
+
+<body class=body>
+<h3>Starwars CA - Planets </h3>
+<div class="grid grid-pad">
+
+  <button *ngFor="let planet of planets ; index as i" class="col-1-4" class="bttn btn-space"
+     routerLink="/category/planets/{{i+1}}" (click)="getPlanetDetail(i+1)">
+      {{planet.name}}
+  </button>
+<br>
+    <button (click)="previousPage()" class="btn-space"> Previous Page </button>
+    <button (click)="nextPage()"> Next Page </button>
+
+    <br>
+
+  <a [(ngModel)]="details" class="col-1-4">
+
+  {{details.name}} <br>
+   {{details.rotation_period}}<br>
+   {{details.orbital_period}}<br>
+   {{details.diameter}}<br>
+   {{details.climate}}<br>
+    {{details.gravity}}<br>
+    {{details.terrain}}<br>
+    {{details.surface_water}}<br>
+    {{details.population}}<br>
+    {{details.residents}}<br>
+    {{details.films}}<br>
+    {{details.created}}<br>
+    {{details.edited}}<br>
+
+  </a>
+</div>

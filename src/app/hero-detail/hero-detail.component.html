@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><button > Refresh </button>
+
+
+        <h3>Starwars CA</h3>
+        <div class="grid grid-pad">
+
+            <a *ngFor="let char of characters ; index as i" class="col-1-4"
+               routerLink="/category/people/{{char.url[char.url.length-3]}}{{char.url[char.url.length-2]}}" (click)="getCharDetail(i)">
+                <!--     routerLink="/category/people/{{char.url[length-2]}}">-->
+
+                <div class="module hero">
+                    <ul>{{char.name}}</ul>
+                    <ul>{{char.url}}</ul>
+                </div>
+            </a>
+
+            <button (click)="nextPage()"> Next Page </button>
+            <br>
+            <button (click)="previousPage()"> Previous Page </button>
+            <br>
+
+
+            <a [(ngModel)]="details" class="col-1-4">
+
+                {{details.name}} <br>
+                {{details.height}}<br>
+                {{details.mass}}<br>
+                {{details.hair_color}}<br>
+                {{details.skin_color}}<br>
+                {{details.eye_color}}<br>
+                {{details.birth_year}}<br>
+                {{details.gender}}<br>
+                {{details.homeworld}}<br>
+                {{details.films}}<br>
+                {{details.species}}<br>
+                {{details.vehicles}}<br>
+                {{details.starships}}<br>
+                {{details.created}}<br>
+                {{details.edited}}<br>
+
+            </a>
+        </div>
+    </title>
+</head>
+<body>
+
+</body>
+</html>

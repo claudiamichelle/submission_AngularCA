@@ -1,0 +1,13 @@
+<h3>Detail of Char</h3>
+<div class="grid grid-pad">
+
+  <a *ngFor="let data of details ; index as i" class="col-1-4"
+     routerLink="/category/people/{{data.name}}" (click)="getCharacterDetails()">
+    <div class="module hero">
+{{data.name}}
+      {{data}}
+    </div>
+  </a>
+
+</div>
+
