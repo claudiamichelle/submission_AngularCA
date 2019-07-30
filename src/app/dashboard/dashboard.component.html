@@ -1,23 +1,20 @@
 
 <body class="body">
-<div style="text-align=center">
-    <img width="300" alt="Starwars logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/694px-Star_Wars_Logo.svg.png">
-</div>
-
-<h3>Starwars CA</h3>
+<div class="container">
+<br><br>
+    <img alt="Starwars logo"  src="https://seeklogo.com/images/S/star-wars-logo-9E8585C340-seeklogo.com.png">
+<br><br>
+<h5 class ="glow"> Welcome to Dashboard!</h5>
+    <h5>*Please make sure you are connected to internet, if below doesn't show anything please wait for it to load</h5>
 <div class="grid grid-pad">
-
-<a *ngFor="let category of categories; index as i" class="btn btn-sm animated-button thar-one"
+<a *ngFor="let category of categories; index as i" class="col-2-4" class="btn btn-sm animated-button thar-one"
       routerLink="/category/{{categories[i]}}">
-    <div class="module hero">
+
       <h4>{{categories[i]}}</h4>
-    </div>
+
   </a>
-
 </div>
-
-<!--<app-hero-search></app-hero-search>-->
-
+</div>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

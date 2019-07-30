@@ -1,4 +1,68 @@
 @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:700"; /* CharacterDetailComponent's private CSS styles */
+
+body {
+  font-family: 'Lato', "Segoe UI";
+  background-image: url("https://66.media.tumblr.com/tumblr_lyholoVeUH1qg95ipo1_400.gif");
+}
+
+.glow-sub {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffff, 0 0 20px #3784d6, 0 0 30px #3784d6, 0 0 40px #3784d6, 0 0 50px #3784d6, 0 0 60px #3784d6, 0 0 70px #3784d6;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px blue, 0 0 40px blue, 0 0 50px blue, 0 0 60px blue, 0 0 70px blue, 0 0 80px blue;
+  }
+}
+
+.glow-name {
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow2 1s ease-in-out infinite alternate;
+  -moz-animation: glow2 1s ease-in-out infinite alternate;
+  animation: glow2 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e51115, 0 0 40px #e51115, 0 0 50px #e51115, 0 0 60px #e51115, 0 0 70px #e51115;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #e51160, 0 0 40px #e51160, 0 0 50px #e51160, 0 0 60px #e51160, 0 0 70px #e51160, 0 0 80px #e51160;
+  }
+}
+
+.glow-details {
+  font-size: 14px;
+  color: #fff;
+  text-align: -webkit-left;
+  -webkit-animation: glow1 1s ease-in-out infinite alternate;
+  -moz-animation: glow1 1s ease-in-out infinite alternate;
+  animation: glow1 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow1 {
+  from {
+    text-shadow: 0 0 10px limegreen, 0 0 20px limegreen, 0 0 30px lime, 0 0 40px lime, 0 0 50px lime, 0 0 60px lime, 0 0 70px lime;
+  }
+
+  to {
+    text-shadow: 0 0 20px limegreen, 0 0 30px lime, 0 0 40px lime, 0 0 50px lime, 0 0 60px lime, 0 0 70px lime, 0 0 80px lime;
+  }
+}
+
+
 label {
   display: inline-block;
   width: 3em;
@@ -13,7 +77,7 @@ input {
 }
 button {
   margin-top: 20px;
-  font-family: Arial;
+  font-family: "Segoe UI";
   background-color: #eee;
   border: none;
   padding: 5px 10px;
@@ -45,7 +109,7 @@ button:disabled {
 }
 
 a.bttn {
-  color: #FF0072;
+  color: #3784d6;
   text-decoration: none;
   -webkit-transition: 0.3s all ease;
   transition: 0.3s ease all;
@@ -59,7 +123,7 @@ a.bttn:focus {
 
 .bttn {
   font-size: 14px;
-  color:#FF0072;
+  color:#3784d6;
   letter-spacing: 2px;
   text-transform: uppercase;
   display: inline;
@@ -67,7 +131,7 @@ a.bttn:focus {
   width: 220px;
   font-weight: bold;
   padding: 14px 0px;
-  border: 3px solid #FF0072;
+  border: 3px solid #3784d6;
   border-radius: 2px;
   position: relative;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -82,7 +146,7 @@ a.bttn:focus {
   bottom: 0;
   opacity: 0;
   content: '';
-  background-color: #FF0072;
+  background-color: #3784d6;
   z-index: -2;
 }
 .bttn:hover:before {

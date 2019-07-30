@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular CA';
+  title = 'Angular CA - Starwars (ISS SA47)';
 }
 
 

@@ -1,37 +1,39 @@
-
-  <button>Show</button>
-
 <body class=body>
-<h3>Starwars CA - People </h3>
-<div class="grid grid-pad">
+<div class="container">
+    <BR><BR>
+    <h3 class="glow-sub">People </h3>
+    <BR><BR>
+    <div class="grid grid-pad">
 
-  <button *ngFor="let char of peoples ; index as i" class="col-1-4" class="bttn btn-space"
-     routerLink="/category/people/{{char.url.split('/')[((char.url.split('/').length)-2)]}}" (click)="getPeopleDetail(char.url.split('/')[((char.url.split('/').length)-2)])">
-      {{char.name}}
-  </button>
-<br>
-    <button (click)="previousPage()" class="btn-space"> Previous Page </button>
-    <button (click)="nextPage()"> Next Page </button>
+        <button *ngFor="let char of peoples ; index as i" class="col-1-4" class="bttn btn-space"
+                routerLink="/category/people/{{char.url.split('/')[((char.url.split('/').length)-2)]}}"
+                (click)="getPeopleDetail(char.url.split('/')[((char.url.split('/').length)-2)])">
+            {{char.name}}
+        </button>
+        <br>
+        <button (click)="previousPage()" class="btn-space"> <<</button>
+        <button (click)="nextPage()"> >></button>
 
-    <br>
+        <br>
 
-  <a [(ngModel)]="details" class="col-1-4">
-
-      <h4>{{details.name}}</h4><br>
-      Height: {{details.height}}<br>
-      Mass: {{details.mass}}<br>
-      Hair Color: {{details.hair_color}}<br>
-      Skin Color: {{details.skin_color}}<br>
-      Eye Color: {{details.eye_color}}<br>
-      Birth Year: {{details.birth_year}}<br>
-      Gender: {{details.gender}}<br>
-      Homeworld: {{details.homeworld}}<br>
-      Films: {{details.films}}<br>
-      Species: {{details.species}}<br>
-      Vehicles: {{details.vehicles}}<br>
-      Starships: {{details.starships}}<br>
-      Created: {{details.created}}<br>
-      Edited: {{details.edited}}<br>
-
-  </a>
+        <div [(ngModel)]="details" class="col-1-4">
+            <h3 class="glow-name"> {{details.name}} </h3> <br>
+            <p class="glow-details">
+                <b> Height: </b>{{details.height}}<br>
+                <b> Mass:</b> {{details.mass}}<br>
+                <b> Hair Color:</b> {{details.hair_color}}<br>
+                <b> Skin Color:</b> {{details.skin_color}}<br>
+                <b> Eye Color:</b> {{details.eye_color}}<br>
+                <b>Birth Year:</b> {{details.birth_year}}<br>
+                <b>Gender:</b> {{details.gender}}<br>
+                <b>Homeworld:</b> {{details.homeworld}}<br>
+                <b>Films:</b> {{details.films}}<br>
+                <b>Species:</b> {{details.species}}<br>
+                <b>Vehicles:</b> {{details.vehicles}}<br>
+                <b>Starships:</b> {{details.starships}}<br>
+                <b>Created:</b> {{details.created}}<br>
+                <b>Edited:</b> {{details.edited}}<br>
+            </p>
+        </div>
+    </div>
 </div>
